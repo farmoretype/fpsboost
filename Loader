@@ -14,20 +14,20 @@ for _, obj in pairs(workspace:GetDescendants()) do
         obj.Transparency = 1
         obj.CastShadow = false
         obj.Material = Enum.Material.SmoothPlastic
-        obj.Anchored = true
-        obj.CanCollide = false
         if obj:FindFirstChild("SurfaceAppearance") then
             obj.SurfaceAppearance:Destroy()
         end
     end
+end
 
 local player = game:GetService("Players").LocalPlayer
 local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 gui.Name = "FPS_BLACKOUT"
 gui.Parent = game.CoreGui
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 local frame = Instance.new("Frame", gui)
 frame.BackgroundColor3 = Color3.new(0, 0, 0)
-frame.Size = UDim2.new(1, 0, 1, 0)
+frame.Size = UDim2.new(1, 0, 1, 36)
 frame.Position = UDim2.new(0, 0, 0, 0)
 frame.ZIndex = 9999
