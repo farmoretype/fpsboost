@@ -6,7 +6,6 @@ end
 workspace.Terrain:Clear()
 
 for _, obj in pairs(workspace:GetDescendants()) do
-    -- Remove decals, textures, particles, lights
     if obj:IsA("Decal") or obj:IsA("Texture") or obj:IsA("ParticleEmitter") or obj:IsA("Light") then
         obj:Destroy()
     end
