@@ -1,7 +1,18 @@
-local cam = workspace:FindFirstChildOfClass("Camera")
-if cam then
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local cam = workspace.CurrentCamera
+
+local function overrideCamera()
+    cam.CameraType = Enum.CameraType.Scriptable
     cam.CFrame = CFrame.new(99999, 99999, 99999)
 end
+
+overrideCamera()
+
+player.CharacterAdded:Connect(function()
+    task.wait(0.1)
+    overrideCamera()
+end)
 
 workspace.Terrain:Clear()
 
@@ -20,7 +31,6 @@ for _, obj in pairs(workspace:GetDescendants()) do
     end
 end
 
-local player = game:GetService("Players").LocalPlayer
 local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 gui.Name = "FPS_BLACKOUT"
 gui.Parent = game.CoreGui
