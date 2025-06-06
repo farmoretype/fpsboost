@@ -2,16 +2,13 @@ local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local cam = workspace.CurrentCamera
 
-local function overrideCamera()
-    cam.CameraType = Enum.CameraType.Scriptable
-    cam.CFrame = CFrame.new(99999, 99999, 99999)
-end
-
-overrideCamera()
+cam.CameraType = Enum.CameraType.Scriptable
+cam.CFrame = CFrame.new(99999, 99999, 99999)
 
 player.CharacterAdded:Connect(function()
     task.wait(1)
-    overrideCamera()
+    cam.CameraType = Enum.CameraType.Scriptable
+    cam.CFrame = CFrame.new(99999, 99999, 99999)
 end)
 
 workspace.Terrain:Clear()
